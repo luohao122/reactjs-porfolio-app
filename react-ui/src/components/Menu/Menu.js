@@ -8,7 +8,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
+import CreateIcon from "@material-ui/icons/Create";
 import MenuIcon from "@material-ui/icons/Menu";
+import { green } from "@material-ui/core/colors";
 
 const useStyles = (theme) => ({
   root: {
@@ -25,13 +27,31 @@ const useStyles = (theme) => ({
     color: "#fff",
     textDecoration: "none",
   },
+  createButton: {
+    backgroundColor: green[500],
+    "&:hover": {
+      backgroundColor: green[700],
+    },
+    color: "#fff",
+  },
 });
 
 class Menu extends React.Component {
   renderLinks() {
+    const { classes } = this.props;
+
     if (this.props.authenticated) {
       return (
         <>
+          <Button
+            className={classes.createButton}
+            variant="contained"
+            component={Link}
+            to="/posts/new"
+            startIcon={<CreateIcon />}
+          >
+            Create new post
+          </Button>
           <Button color="inherit" component={Link} to="/posts/list">
             Post List
           </Button>

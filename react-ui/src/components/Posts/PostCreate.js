@@ -1,7 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const PostCreate = () => {
-  return <div>PostCreate</div>;
-};
+class PostCreate extends React.Component {
+  render() {
+    return <div>PostCreate</div>;
+  }
+}
 
 export default PostCreate;
