@@ -29,10 +29,11 @@ if (!isDev && cluster.isMaster) {
 } else {
   // Create instance of express
   const app = express();
-  const router = require("./router");
+  const router = require("./routes/router");
 
   // DB Setup
-  mongoose.connect("mongodb://localhost:auth/authentication", {
+  // Run the database (mongod process) with the --auth option to enable security.
+  mongoose.connect("mongodb://localhost:auth/porfolio", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
